@@ -30,14 +30,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean updateUser(User _user) {
-        User entity = userDao.getUserById(_user.get_id());
-        if(entity!=null){
-            entity.set_name(_user.get_name());
-            entity.set_email(_user.get_email());
-            entity.set_address(_user.get_address());
+        try {
+            userDao.updateUser(_user);
             return true;
+        }catch (Exception e) {
+            return false;
         }
-        return false;
     }
 
     @Override

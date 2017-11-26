@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Haimov on 25/11/2017.
@@ -36,8 +37,12 @@ public class UserHubCtrl {
 
     @RequestMapping(value = { "/updateUser" }, method = RequestMethod.POST)
     @ResponseBody
-    public boolean updateUser(@RequestParam(value = "user") User user) {
-        return userService.updateUser(user);
+    public boolean updateUser(@RequestParam Map<String,String> params) {
+        return userService.updateUser(
+                new User((Integer.parseInt(params.get("id"))),
+                params.get("name"),
+                params.get("email"),
+                params.get("address")));
     }
 
     @RequestMapping(value = { "/deleteUserById" }, method = RequestMethod.POST)

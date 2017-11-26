@@ -23,11 +23,11 @@ public class User implements Serializable {
     private Date _join_date;
 
 
-    public User(String _name, String _email, String _address, int _id) {
+    public User(int _id, String _name, String _email, String _address) {
+        this._id = _id;
         this._name = _name;
         this._email = _email;
         this._address = _address;
-        this._id = _id;
     }
 
     protected User(){}
@@ -81,23 +81,5 @@ public class User implements Serializable {
 
     public void set_join_date(Date _join_date) {
         this._join_date = _join_date;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        User user = (User) o;
-        return _id == user._id && _name.equals(user._name) && (_email != null ? _email.equals(user._email) : user._email == null) && (_address != null ? _address.equals(user._address) : user._address == null) && _join_date.equals(user._join_date);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (_id ^ (_id >>> 32));
-        result = 31 * result + _name.hashCode();
-        result = 31 * result + (_email != null ? _email.hashCode() : 0);
-        result = 31 * result + (_address != null ? _address.hashCode() : 0);
-        result = 31 * result + _join_date.hashCode();
-        return result;
     }
 }
