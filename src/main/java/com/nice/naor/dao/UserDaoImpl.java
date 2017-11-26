@@ -26,7 +26,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 
     @Override
     @Transactional
-    public User getUserById(long user_id) {
+    public User getUserById(int user_id) {
         Criteria criteria = createEntityCriteria();
         criteria.add(Restrictions.eq("id", user_id));
         return (User) criteria.uniqueResult();
@@ -40,9 +40,9 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 
     @Override
     @Transactional
-    public void deleteUser(User _user) {
+    public void deleteUserById(int id) {
         Query query = getSession().createSQLQuery("delete from USER where id = :id");
-        query.setParameter("id", _user.get_id());
+        query.setParameter("id", id);
         query.executeUpdate();
     }
 }

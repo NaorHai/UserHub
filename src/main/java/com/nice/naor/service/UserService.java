@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface UserService {
     List<User> getAllUsers();
-    User getUserById(long user_id);
+    User getUserById(int user_id);
     boolean updateUser(User _user);
-    boolean deleteUser(User _user);}
+    boolean deleteUserById(int id);}

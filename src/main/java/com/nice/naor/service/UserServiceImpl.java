@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(long user_id) {
+    public User getUserById(int user_id) {
         return userDao.getUserById(user_id);
     }
 
@@ -41,9 +41,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean deleteUser(User _user) {
+    public boolean deleteUserById(int id) {
          try {
-             userDao.deleteUser(_user);
+             userDao.deleteUserById(id);
              return true;
          }
          catch (Exception e) {

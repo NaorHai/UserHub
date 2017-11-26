@@ -30,7 +30,7 @@ public class UserHubCtrl {
 
     @RequestMapping(value = { "/getUserById" }, method = RequestMethod.POST)
     @ResponseBody
-    public User getUserById(@RequestParam(value = "id") long id) {
+    public User getUserById(@RequestParam(value = "id") int id) {
         return userService.getUserById(id);
     }
 
@@ -40,10 +40,10 @@ public class UserHubCtrl {
         return userService.updateUser(user);
     }
 
-    @RequestMapping(value = { "/deleteUser" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/deleteUserById" }, method = RequestMethod.POST)
     @ResponseBody
-    public boolean deleteUser(@RequestParam(value = "user") User user) {
-        return userService.updateUser(user);
+    public boolean deleteUserById(@RequestParam(value = "id") int id) {
+        return userService.deleteUserById(id);
     }
 }
 
