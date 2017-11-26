@@ -1,8 +1,12 @@
 package com.nice.naor.configuration;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
+
+import javax.persistence.EntityManagerFactory;
 
 
 /**
@@ -12,7 +16,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
 @Configuration
 public class AppConfig {
     @Bean
-    public HibernateJpaSessionFactoryBean sessionFactory() {
-        return new HibernateJpaSessionFactoryBean();
+    public SessionFactory sessionFactory(@Qualifier("entityManagerFactory") EntityManagerFactory emf) {
+        return emf.unwrap(SessionFactory.class);
     }
 }
