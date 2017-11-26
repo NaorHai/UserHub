@@ -16,24 +16,25 @@ import java.util.Date;
 @Entity
 @Table(name = "USER")
 public class User implements Serializable {
-    private long _id;
+    private int _id;
     private String _name;
     private String _email;
     private String _address;
-    private Date _joinDate;
+    private Date _join_date;
 
 
     public User(String _name, String _email, String _address, int _id) {
         this._name = _name;
-
         this._email = _email;
         this._address = _address;
         this._id = _id;
     }
 
+    protected User(){}
+
     @Id
     @Column(name = "id", unique = true, nullable = false)
-    public long get_id() {
+    public int get_id() {
         return _id;
     }
 
@@ -74,14 +75,12 @@ public class User implements Serializable {
         this._address = _address;
     }
 
-    @Column(name = "joinDate")
+    @Column(name = "join_date")
     @NotNull
-    public Date get_joinDate() {
-        return _joinDate;
-    }
+    public Date get_join_date() {return _join_date;}
 
-    public void set_joinDate(Date _joinDate) {
-        this._joinDate = _joinDate;
+    public void set_join_date(Date _join_date) {
+        this._join_date = _join_date;
     }
 
     @Override
@@ -89,7 +88,7 @@ public class User implements Serializable {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return _id == user._id && _name.equals(user._name) && (_email != null ? _email.equals(user._email) : user._email == null) && (_address != null ? _address.equals(user._address) : user._address == null) && _joinDate.equals(user._joinDate);
+        return _id == user._id && _name.equals(user._name) && (_email != null ? _email.equals(user._email) : user._email == null) && (_address != null ? _address.equals(user._address) : user._address == null) && _join_date.equals(user._join_date);
     }
 
     @Override
@@ -98,7 +97,7 @@ public class User implements Serializable {
         result = 31 * result + _name.hashCode();
         result = 31 * result + (_email != null ? _email.hashCode() : 0);
         result = 31 * result + (_address != null ? _address.hashCode() : 0);
-        result = 31 * result + _joinDate.hashCode();
+        result = 31 * result + _join_date.hashCode();
         return result;
     }
 }

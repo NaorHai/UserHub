@@ -18,11 +18,15 @@ public class UserHubCtrl {
     @Autowired
     private UserService userService;
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @ResponseBody
+    public String greetings() {
+        return "Welcome to UserHub";
+    }
+
     @RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
     @ResponseBody
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
-    }
+    public List<User> getAllUsers() {return userService.getAllUsers();}
 
     @RequestMapping(value = { "/getUserById" }, method = RequestMethod.POST)
     @ResponseBody
