@@ -1,0 +1,1 @@
+INSERT INTO users VALUES ("123", "Naor Haimov", "naorh@mailinator,com", "Arlozorov 22, Ramat Gan", CURRENT_DATE), ("456", "Tomer Haimov", "tomerh@mailinator,com", "David Elazar 7, Ramla", CURRENT_DATE);

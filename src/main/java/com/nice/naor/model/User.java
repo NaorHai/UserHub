@@ -32,7 +32,6 @@ public class User implements Serializable {
     }
 
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     public long get_id() {
         return _id;
@@ -77,7 +76,6 @@ public class User implements Serializable {
 
     @Column(name = "joinDate")
     @NotNull
-    @DateTimeFormat(pattern="dd/MM/yyyy")
     public Date get_joinDate() {
         return _joinDate;
     }

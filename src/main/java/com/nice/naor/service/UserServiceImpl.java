@@ -33,7 +33,6 @@ public class UserServiceImpl implements UserService {
         User entity = userDao.getUserById(_user.get_id());
         if(entity!=null){
             entity.set_name(_user.get_name());
-            entity.set_joinDate(_user.get_joinDate());
             entity.set_email(_user.get_email());
             entity.set_address(_user.get_address());
             return true;
