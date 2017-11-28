@@ -1,6 +1,7 @@
 package com.nice.naor.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -76,6 +77,7 @@ public class User implements Serializable {
 
     @Column(name = "join_date")
     @NotNull
+    @DateTimeFormat(pattern = "dd/mm/yyyy")
     public Date getJoin_date() {return join_date;}
 
     public void setJoin_date(Date join_date) {

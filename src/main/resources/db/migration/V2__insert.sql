@@ -1,1 +1,1 @@
-INSERT INTO user VALUES ("123", "Naor Haimov", "naorh@mailinator.com", "Arlozorov 22, Ramat Gan", CURRENT_DATE), ("456", "Tomer Haimov", "tomerh@mailinator.com", "David Elazar 7, Ramla", CURRENT_DATE);
+INSERT INTO user VALUES ("123", "Naor Haimov", "naorh@mailinator.com", "Arlozorov 22, Ramat Gan", NOW()), ("456", "Tomer Haimov", "tomerh@mailinator.com", "David Elazar 7, Ramla", NOW()), ("778", "Yoav Shichel", "yoav@mailinator.com", "Zatchin 13, Raanana", NOW()), ("777", "Shula Eliyahu", "shulaE@mailinator.com", "Savyon 12, Savyon", NOW());

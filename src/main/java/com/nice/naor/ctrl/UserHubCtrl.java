@@ -7,13 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Haimov on 25/11/2017.
  */
 
 @Controller
+@RequestMapping("/userhub")
 public class UserHubCtrl {
 
     @Autowired
@@ -31,7 +31,7 @@ public class UserHubCtrl {
 
     @RequestMapping(value = { "/getUserById" }, method = RequestMethod.POST)
     @ResponseBody
-    public User getUserById(@RequestParam(value = "id") int id) {
+    public User getUserById(@RequestBody int id) {
         return userService.getUserById(id);
     }
 
@@ -43,7 +43,7 @@ public class UserHubCtrl {
 
     @RequestMapping(value = { "/deleteUserById" }, method = RequestMethod.POST)
     @ResponseBody
-    public boolean deleteUserById(@RequestParam(value = "id") int id) {
+    public boolean deleteUserById(@RequestBody int id) {
         return userService.deleteUserById(id);
     }
 }
