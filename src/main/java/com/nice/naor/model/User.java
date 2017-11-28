@@ -1,7 +1,6 @@
 package com.nice.naor.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -16,70 +15,70 @@ import java.util.Date;
 @Entity
 @Table(name = "USER")
 public class User implements Serializable {
-    private int _id;
-    private String _name;
-    private String _email;
-    private String _address;
-    private Date _join_date;
+    private int id;
+    private String name;
+    private String email;
+    private String address;
+    private Date join_date;
 
 
     public User(int _id, String _name, String _email, String _address) {
-        this._id = _id;
-        this._name = _name;
-        this._email = _email;
-        this._address = _address;
+        this.id = _id;
+        this.name = _name;
+        this.email = _email;
+        this.address = _address;
     }
 
     protected User(){}
 
     @Id
     @Column(name = "id", unique = true, nullable = false)
-    public int get_id() {
-        return _id;
+    public int getId() {
+        return id;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     @NotEmpty
     @Size(min=1, max=100)
     @Column(name = "name", nullable = false)
-    public String get_name() {
-        return _name;
+    public String getName() {
+        return name;
     }
 
-    public void set_name(String _name) {
-        this._name = _name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @NotEmpty
     @Size(min=5, max=100)
     @Column(name = "email")
-    public String get_email() {
-        return _email;
+    public String getEmail() {
+        return email;
     }
 
-    public void set_email(String _email) {
-        this._email = _email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @NotEmpty
     @Size(min=2, max=100)
     @Column(name = "address")
-    public String get_address() {
-        return _address;
+    public String getAddress() {
+        return address;
     }
 
-    public void set_address(String _address) {
-        this._address = _address;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Column(name = "join_date")
     @NotNull
-    public Date get_join_date() {return _join_date;}
+    public Date getJoin_date() {return join_date;}
 
-    public void set_join_date(Date _join_date) {
-        this._join_date = _join_date;
+    public void setJoin_date(Date join_date) {
+        this.join_date = join_date;
     }
 }

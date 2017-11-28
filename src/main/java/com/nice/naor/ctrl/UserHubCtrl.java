@@ -37,12 +37,8 @@ public class UserHubCtrl {
 
     @RequestMapping(value = { "/updateUser" }, method = RequestMethod.POST)
     @ResponseBody
-    public boolean updateUser(@RequestParam Map<String,String> params) {
-        return userService.updateUser(
-                new User((Integer.parseInt(params.get("id"))),
-                params.get("name"),
-                params.get("email"),
-                params.get("address")));
+    public boolean updateUser(@RequestBody User user) {
+        return userService.updateUser(user);
     }
 
     @RequestMapping(value = { "/deleteUserById" }, method = RequestMethod.POST)

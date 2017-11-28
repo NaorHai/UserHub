@@ -35,7 +35,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
     @Override
     @Transactional
     public void updateUser(User _user) {
-        persist(_user);
+        getSession().saveOrUpdate(_user);
     }
 
     @Override
