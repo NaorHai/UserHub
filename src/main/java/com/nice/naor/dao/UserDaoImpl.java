@@ -2,10 +2,8 @@ package com.nice.naor.dao;
 
 import com.nice.naor.model.User;
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
 
