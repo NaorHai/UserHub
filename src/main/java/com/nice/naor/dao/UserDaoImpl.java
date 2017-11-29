@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 
-    final static Logger logger = Logger.getLogger(UserDaoImpl.class);
+    private final static Logger logger = Logger.getLogger(UserDaoImpl.class);
 
     @SuppressWarnings("unchecked")
     @Override
@@ -28,7 +28,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
     @Override
     @Transactional
     public User getUserById(int user_id) {
-        User user = null;
+        User user;
         Criteria criteria = createEntityCriteria();
         criteria.add(Restrictions.eq("id", user_id));
         user = (User) criteria.uniqueResult();
